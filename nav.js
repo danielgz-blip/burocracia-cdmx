@@ -1,6 +1,6 @@
-/* Nav única del sitio: estática, transparente, sin logo.
-   Si los elementos no caben en horizontal → menú hamburguesa
-   (detección real de espacio, no breakpoint fijo). */
+/* Nav única del sitio: estática, transparente, sin logo, alineada a la derecha.
+   El botón "Contar mi caso" vive siempre dentro de la barra.
+   Tablet (≤1024px) y menor → menú hamburguesa (breakpoint, no medición de espacio). */
 (function () {
   const enlaces = [
     { href: 'index.html#ranking', label: 'Trámites' },
@@ -13,28 +13,20 @@
     <nav class="nav">
       <div class="container nav-in">
         <div class="nav-links">${lista}</div>
-        <a class="btn nav-cta" href="cuenta.html">Contar mi caso</a>
         <button class="hamburguesa" aria-label="Menú" aria-expanded="false"><i data-lucide="menu"></i></button>
+        <a class="btn nav-cta" href="cuenta.html">Contar mi caso</a>
       </div>
-      <div class="nav-menu" hidden>
-        ${lista}
-        <a class="btn" href="cuenta.html">Contar mi caso</a>
-      </div>
+      <div class="nav-menu" hidden>${lista}</div>
     </nav>`);
 
   const nav = document.querySelector('.nav');
-  const cont = nav.querySelector('.nav-in');
   const burger = nav.querySelector('.hamburguesa');
   const menu = nav.querySelector('.nav-menu');
+  const mq = window.matchMedia('(max-width: 1024px)');
 
-  function ajustar() {
-    nav.classList.remove('compacto');
-    burger.hidden = true;
-    // si el contenido desborda el ancho disponible, entra modo hamburguesa
-    if (cont.scrollWidth > cont.clientWidth) {
-      nav.classList.add('compacto');
-      burger.hidden = false;
-    }
+  function sincronizar() {
+    nav.classList.toggle('compacto', mq.matches);
+    if (!mq.matches) { menu.hidden = true; burger.setAttribute('aria-expanded', 'false'); }
   }
 
   burger.addEventListener('click', () => {
@@ -45,9 +37,9 @@
     if (window.lucide) lucide.createIcons();
   });
 
-  window.addEventListener('resize', ajustar);
-  window.addEventListener('load', ajustar);
-  ajustar();
+  if (mq.addEventListener) mq.addEventListener('change', sincronizar);
+  else mq.addListener(sincronizar);
+  sincronizar();
   if (window.lucide) lucide.createIcons();
   else window.addEventListener('load', () => window.lucide && lucide.createIcons());
 })();
