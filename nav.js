@@ -3,6 +3,7 @@
    Tablet (≤1024px) y menor → menú hamburguesa (breakpoint, no medición de espacio). */
 (function () {
   const enlaces = [
+    { href: 'index.html', label: 'Inicio' },
     { href: 'index.html#ranking', label: 'Trámites' },
     { href: 'barreras.html', label: 'Barreras' },
     { href: 'adonde-va-el-personal.html', label: 'Adónde va el personal' },
