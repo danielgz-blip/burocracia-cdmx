@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuenta tu caso — Burocracia CDMX</title>
+<meta name="description" content="Cronómetro ciudadano: reporta cuánto tiempo, visitas y dinero te costó tu trámite y alimenta el ranking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-in">
+    <a class="marca" href="index.html"><i data-lucide="landmark"></i>Burocracia&nbsp;CDMX</a>
+    <div class="nav-links">
+      <a href="index.html#ranking">Trámites</a>
+      <a href="barreras.html">Barreras</a>
+      <a href="cuenta.html">Cuenta tu caso</a>
+      <a href="acerca-de.html">Acerca de</a>
+    </div>
+    <a class="btn nav-cta" href="cuenta.html">Contar mi caso</a>
+  </div>
+</nav>
+
+<main class="container">
+  <p class="kicker">Cronómetro ciudadano</p>
+  <h1>Cuenta tu&nbsp;caso</h1>
+  <p class="sub">¿Cuánto tiempo, visitas y dinero te costó tu último trámite? Tus datos alimentan el ranking y las propuestas de simplificación. <strong>Sin registro, sin datos&nbsp;personales.</strong></p>
+
+  <section aria-label="Formulario">
+    <form id="caso" class="formulario">
+      <label>¿Qué trámite hiciste?
+        <input type="text" name="tramite" required placeholder="Ej. Alta de placas de motocicleta">
+      </label>
+      <label>¿Qué dependencia?
+        <input type="text" name="dependencia" required placeholder="Ej. SEMOVI / Tesorería">
+      </label>
+      <div class="fila">
+        <label>Sedes a las que fuiste
+          <input type="number" name="sedes" min="0" required placeholder="4">
+        </label>
+        <label>Citas que sacaste
+          <input type="number" name="citas" min="0" required placeholder="2">
+        </label>
+        <label>Horas totales invertidas
+          <input type="number" name="horas" min="0" step="0.5" required placeholder="3">
+        </label>
+        <label>Pagos (MXN)
+          <input type="number" name="costo" min="0" required placeholder="709">
+        </label>
+      </div>
+      <label>¿Qué te pareció lo más absurdo? (opcional)
+        <textarea name="absurdo" rows="3" placeholder="Ej. Me pidieron copia de un pago que ellos mismos emitieron"></textarea>
+      </label>
+      <button class="btn" type="submit">Enviar mi caso</button>
+      <p class="nota">Tu reporte se guarda solo en este dispositivo mientras definimos la base de datos pública. Recibes un resumen para copiar y compartir.</p>
+    </form>
+    <div id="gracias" hidden>
+      <h2>Gracias, tu caso&nbsp;cuenta</h2>
+      <p>Tu reporte quedó registrado en esta sesión. Copia el resumen y compártelo: cada caso documentado presiona por un trámite más&nbsp;simple.</p>
+      <pre id="resumen" class="resumen"></pre>
+      <button class="btn ghost" id="copiar">Copiar resumen</button>
+    </div>
+  </section>
+
+  <section aria-label="Propuesta">
+    <h2>Qué hacemos con tus&nbsp;datos</h2>
+    <p>Los sumamos al ranking de fricción por trámite (visitas, citas, horas, costo) y los cruzamos con la documentación oficial publicada en Gaceta. Cuando un trámite acumula suficientes casos, publicamos la ficha completa con propuesta de simplificación — sin recortes, con reasignación de personal a tareas de&nbsp;territorio.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Proyecto ciudadano · Base legal: LNETB 2025 + Constitución CDMX art.&nbsp;7.A · <a href="metodologia.html">Metodología y fuentes</a></p>
+    <p class="nota">Cada dato cita su documento. Lo que está en verificación se marca como&nbsp;tal.</p>
+  </div>
+</footer>
+
+<script>
+const form = document.getElementById('caso');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(form).entries());
+  const texto = `TRÁMITE: ${d.tramite}\nDEPENDENCIA: ${d.dependencia}\nSEDES: ${d.sedes} · CITAS: ${d.citas} · HORAS: ${d.horas} · COSTO: $${d.costo} MXN${d.absurdo ? '\nLO MÁS ABSURDO: ' + d.absurdo : ''}`;
+  document.getElementById('resumen').textContent = texto;
+  form.hidden = true;
+  document.getElementById('gracias').hidden = false;
+});
+document.getElementById('copiar').addEventListener('click', () => {
+  navigator.clipboard.writeText(document.getElementById('resumen').textContent);
+  document.getElementById('copiar').textContent = 'Copiado';
+});
+if (window.lucide) lucide.createIcons();
+else window.addEventListener('load', () => window.lucide && lucide.createIcons());
+</script>
+</body>
+</html>

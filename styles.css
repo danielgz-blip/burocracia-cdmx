@@ -78,5 +78,36 @@ table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; border-radius:
 th, td { border: 1px solid var(--linea); padding: .75rem 1rem; text-align: left; font-size: 1rem; line-height: 1.5rem; }
 th { background: var(--acento); color: #fff; font-weight: 600; }
 
+/* Nav */
+.nav { background: #fff; border-bottom: 1px solid var(--linea); position: sticky; top: 0; z-index: 50; }
+.nav-in { display: flex; align-items: center; gap: 1.5rem; padding-top: .85rem; padding-bottom: .85rem; flex-wrap: wrap; }
+.marca { display: flex; align-items: center; gap: .55rem; font-weight: 800; font-size: 1.25rem; line-height: 2rem; color: var(--tinta); text-decoration: none; }
+.marca:hover { color: var(--acento); text-decoration: none; }
+.marca svg { width: 1.5rem; height: 1.5rem; color: var(--acento); }
+.nav-links { display: flex; gap: 1.5rem; flex: 1; flex-wrap: wrap; }
+.nav-links a { color: var(--tinta); text-decoration: none; font-size: 1.125rem; line-height: 1.75rem; font-weight: 500; }
+.nav-links a:hover { color: var(--acento); }
+.nav-cta { padding: .55rem 1.4rem; font-size: 1rem; }
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-in { justify-content: space-between; }
+}
+
+/* Barreras lista */
+.barreras-lista .cat { margin: 3rem 0 1.5rem; }
+.barreras-lista .card { margin-bottom: 1.25rem; }
+
+/* Formulario */
+.formulario { display: grid; gap: 1.25rem; max-width: 44rem; margin-top: 2.5rem; }
+.formulario label { display: grid; gap: .45rem; font-weight: 600; font-size: 1.125rem; line-height: 1.75rem; }
+.formulario input, .formulario textarea {
+  font: inherit; padding: .75rem 1rem; border: 1px solid var(--linea-fuerte);
+  border-radius: .5rem; color: var(--tinta); background: #fff;
+}
+.formulario input:focus, .formulario textarea:focus { outline: 2px solid var(--acento); border-color: var(--acento); }
+.formulario .fila { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1.25rem; }
+.formulario button { justify-self: start; border: none; cursor: pointer; }
+.resumen { background: var(--suave); border: 1px solid var(--linea); border-radius: .75rem; padding: 1.25rem; font-family: "Barlow", sans-serif; font-size: 1rem; line-height: 1.6rem; white-space: pre-wrap; }
+
 footer { border-top: 1px solid var(--linea); padding: 2.5rem 0; color: var(--gris-claro); font-size: 1rem; line-height: 1.5rem; background: var(--suave); }
 ol li, ul li { margin-bottom: .5rem; }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acerca de — Burocracia CDMX</title>
+<meta name="description" content="Auditoría ciudadana de trámites en CDMX: qué hacemos, con qué fundamento y qué proponemos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-in">
+    <a class="marca" href="index.html"><i data-lucide="landmark"></i>Burocracia&nbsp;CDMX</a>
+    <div class="nav-links">
+      <a href="index.html#ranking">Trámites</a>
+      <a href="barreras.html">Barreras</a>
+      <a href="cuenta.html">Cuenta tu caso</a>
+      <a href="acerca-de.html">Acerca de</a>
+    </div>
+    <a class="btn nav-cta" href="cuenta.html">Contar mi caso</a>
+  </div>
+</nav>
+
+<main class="container">
+  <p class="kicker">Acerca de</p>
+  <h1>La ley ya existe. Ayudemos a&nbsp;cumplirla</h1>
+  <p class="sub">Auditoría ciudadana de los trámites burocráticos de la Ciudad de México. Medimos lo que la gente vive en ventanilla y lo comparamos con lo que la ley y la Gaceta&nbsp;dicen.</p>
+
+  <section aria-label="Origen">
+    <h2>De dónde&nbsp;viene</h2>
+    <p>Todo empezó con un trámite: dar de alta la placa de una motocicleta. Cuatro locaciones, dos citas en dos dependencias distintas, más de dos horas de espera para procesar diez hojas — y $709 más tenencia. Nada de eso estaba en la ley. Lo que sí está en la ley es la obligación de simplificar los&nbsp;trámites.</p>
+    <p>De ahí nace este proyecto: documentar con evidencia dónde el procedimiento se separa de su fundamento, proponer soluciones concretas y hacerlo visible para que la presión pública venga de los&nbsp;hechos.</p>
+  </section>
+
+  <section aria-label="Metodología">
+    <h2>Cómo lo&nbsp;hacemos</h2>
+    <div class="cards">
+      <article class="card"><i data-lucide="timer"></i><h3>Medimos</h3><p class="dep">Visitas, citas, horas y costos reales por trámite, con el método Standard Cost Model (OCDE/UE) que usa SIMPLIFICA en México.</p></article>
+      <article class="card"><i data-lucide="file-check"></i><h3>Verificamos</h3><p class="dep">Cada dato se cruza contra la documentación oficial: Gaceta, reglamentos, manuales y fichas del registro de trámites. Sin fuente, no se publica.</p></article>
+      <article class="card"><i data-lucide="lightbulb"></i><h3>Proponemos</h3><p class="dep">Cada crítica lleva una solución: ventanilla única, expediente electrónico, reutilización de datos. Con fundamento en la LNETB 2025.</p></article>
+    </div>
+  </section>
+
+  <section aria-label="Restricción">
+    <h2>Sin recortes, con&nbsp;reasignación</h2>
+    <p>Este proyecto no plantea despedir a nadie. La burocracia ancha mueve dinero hacia la base económica y eso hay que preservarlo. Lo que proponemos es reenfocar: que el personal liberado de ventanilla pase a tareas de territorio — calles, agua, verificación en campo, internet público, atención en colonias. Mismo empleo, más valor&nbsp;público.</p>
+  </section>
+
+  <section aria-label="Transparencia">
+    <h2>Nuestra&nbsp;transparencia</h2>
+    <p>El corpus completo (49 documentos oficiales, con hashes de integridad), el reporte de barreras y la metodología están publicados en el repositorio del proyecto. Si encuentras un dato equivocado, escríbenos: lo corregimos con la fuente&nbsp;a la vista.</p>
+    <ul>
+      <li>Base legal: <strong>LNETB 2025</strong>, Constitución CDMX art.&nbsp;7.A (derecho a la buena administración), Convención ONU contra la Corrupción art.&nbsp;10(b).</li>
+      <li>Metodología: Standard Cost Model + ISO&nbsp;18091 (gobiernos locales).</li>
+      <li>Regla de evidencia: documento + página + fecha de consulta + hash.</li>
+    </ul>
+  </section>
+
+  <section aria-label="Contacto">
+    <h2>Suma tu&nbsp;caso</h2>
+    <p>La auditoría crece con lo que la gente reporta. Cuéntanos qué trámite te costó tiempo, dinero o&nbsp;paciencia.</p>
+    <div class="cta-row"><a class="btn" href="cuenta.html">Contar mi caso</a><a class="btn ghost" href="barreras.html">Ver barreras documentadas</a></div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Proyecto ciudadano · Base legal: LNETB 2025 + Constitución CDMX art.&nbsp;7.A · <a href="metodologia.html">Metodología y fuentes</a></p>
+    <p class="nota">Cada dato cita su documento. Lo que está en verificación se marca como&nbsp;tal.</p>
+  </div>
+</footer>
+
+<script>
+if (window.lucide) lucide.createIcons();
+else window.addEventListener('load', () => window.lucide && lucide.createIcons());
+</script>
+</body>
+</html>

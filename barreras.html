@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barreras documentadas — Burocracia CDMX</title>
+<meta name="description" content="Las 18 barreras técnicas para consultar la normativa oficial de la Ciudad de México, con evidencia reproducible.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-in">
+    <a class="marca" href="index.html"><i data-lucide="landmark"></i>Burocracia&nbsp;CDMX</a>
+    <div class="nav-links">
+      <a href="index.html#ranking">Trámites</a>
+      <a href="barreras.html">Barreras</a>
+      <a href="cuenta.html">Cuenta tu caso</a>
+      <a href="acerca-de.html">Acerca de</a>
+    </div>
+    <a class="btn nav-cta" href="cuenta.html">Contar mi caso</a>
+  </div>
+</nav>
+
+<main class="container">
+  <p class="kicker">Acceso a la normativa</p>
+  <h1>Barreras&nbsp;documentadas</h1>
+  <p class="sub">La ley obliga a publicar la normativa. Está publicada — pero en la práctica es inalcanzable. Documentamos <strong>18 barreras técnicas</strong> con evidencia reproducible: cada una se comprobó desde una computadora común, sin credenciales, con los comandos registrados en el reporte.</p>
+
+  <section class="numeros" aria-label="Resumen">
+    <div class="numero"><i data-lucide="shield-alert"></i><span class="cifra">18</span><span class="etiqueta">barreras con evidencia</span></div>
+    <div class="numero"><i data-lucide="layers"></i><span class="cifra">4</span><span class="etiqueta">causas raíz</span></div>
+    <div class="numero"><i data-lucide="unlink"></i><span class="cifra">216</span><span class="etiqueta">enlaces tras un sitio «inseguro»</span></div>
+    <div class="numero"><i data-lucide="scan-text"></i><span class="cifra">0</span><span class="etiqueta">caracteres en manuales de 642&nbsp;MB</span></div>
+  </section>
+
+  <section aria-label="Listado de barreras">
+    <div id="lista" class="barreras-lista"></div>
+    <p class="nota">Cada barrera incluye responsable y vía de queja en el reporte completo.</p>
+    <p><a href="metodologia.html">Cómo auditamos y con qué fundamento →</a></p>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Proyecto ciudadano · Base legal: LNETB 2025 + Constitución CDMX art.&nbsp;7.A · <a href="metodologia.html">Metodología y fuentes</a></p>
+    <p class="nota">Cada dato cita su documento. Lo que está en verificación se marca como&nbsp;tal.</p>
+  </div>
+</footer>
+
+<script>
+fetch('data/barreras.json').then(r => r.json()).then(db => {
+  const cont = document.getElementById('lista');
+  let cat = '';
+  db.barreras.forEach(b => {
+    if (b.cat !== cat) {
+      cat = b.cat;
+      const h = document.createElement('h2');
+      h.className = 'cat';
+      h.textContent = db.categorias[cat];
+      cont.appendChild(h);
+    }
+    const d = document.createElement('article');
+    d.className = 'card';
+    d.innerHTML = `<i data-lucide="circle-alert"></i>
+      <h3>#${b.n} ${b.titulo}</h3>
+      <p class="dep">${b.detalle}</p>
+      <p class="nota">Responsable: ${b.responsable} · Vía: ${b.via}</p>`;
+    cont.appendChild(d);
+  });
+  if (window.lucide) lucide.createIcons();
+  else window.addEventListener('load', () => window.lucide && lucide.createIcons());
+}).catch(() => document.getElementById('lista').innerHTML = '<p class="nota">No se pudieron cargar los datos.</p>');
+</script>
+</body>
+</html>
