@@ -54,22 +54,23 @@
 <script>
 fetch('data/barreras.json').then(r => r.json()).then(db => {
   const cont = document.getElementById('lista');
-  let cat = '';
-  db.barreras.forEach(b => {
-    if (b.cat !== cat) {
-      cat = b.cat;
-      const h = document.createElement('h2');
-      h.className = 'cat';
-      h.textContent = db.categorias[cat];
-      cont.appendChild(h);
-    }
-    const d = document.createElement('article');
-    d.className = 'card';
-    d.innerHTML = `<i data-lucide="circle-alert"></i>
-      <h3>#${b.n} ${b.titulo}</h3>
-      <p class="dep">${b.detalle}</p>
-      <p class="nota">Responsable: ${b.responsable} · Vía: ${b.via}</p>`;
-    cont.appendChild(d);
+  const orden = ['A', 'B', 'C', 'D'];
+  orden.forEach(cat => {
+    const grupo = db.barreras.filter(b => b.cat === cat);
+    if (!grupo.length) return;
+    const h = document.createElement('h2');
+    h.className = 'cat';
+    h.textContent = db.categorias[cat];
+    cont.appendChild(h);
+    grupo.forEach(b => {
+      const d = document.createElement('article');
+      d.className = 'card';
+      d.innerHTML = `<i data-lucide="circle-alert"></i>
+        <h3>#${b.n} ${b.titulo}</h3>
+        <p class="dep">${b.detalle}</p>
+        <p class="nota">Responsable: ${b.responsable} · Vía: ${b.via}</p>`;
+      cont.appendChild(d);
+    });
   });
   if (window.lucide) lucide.createIcons();
   else window.addEventListener('load', () => window.lucide && lucide.createIcons());
