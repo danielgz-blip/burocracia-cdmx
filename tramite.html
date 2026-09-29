@@ -31,7 +31,7 @@ fetch('data/tramites.json').then(r => r.json()).then(db => {
     <h1>${t.nombre}</h1>
     <p class="sub">${t.resumen}</p>
     <p><span class="badge ${sem}">${t.semaforo === 'rojo' ? 'Carga alta' : 'Carga baja'}</span></p>
-    <h2>Capa 2 — El detalle</h2>
+    <h2>El detalle</h2>
     <div class="numeros">
       <div class="numero"><span class="cifra">${t.visitas}</span><span class="etiqueta">sedes / visitas</span></div>
       <div class="numero"><span class="cifra">${t.citas}</span><span class="etiqueta">citas</span></div>
@@ -47,7 +47,7 @@ fetch('data/tramites.json').then(r => r.json()).then(db => {
     ${t.requisitos_sin_fundamento_nota ? `<p class="nota">${t.requisitos_sin_fundamento_nota}</p>` : ''}
     <h3>Propuesta (sin recortes)</h3>
     <p>${t.propuesta}</p>
-    <h2>Capa 3 — Evidencia y fundamento</h2>
+    <h2>Evidencia y fundamento</h2>
     <ul>${t.fuentes.map(f => `<li><strong>${f.doc}</strong> — ${f.detalle} <span class="nota">(consultado ${f.fecha})</span></li>`).join('')}</ul>
     <p><strong>Fundamento:</strong> ${t.fundamento}</p>
     <p class="nota">Verificación completa (hashes, páginas exactas) en el repositorio del proyecto.</p>`;
