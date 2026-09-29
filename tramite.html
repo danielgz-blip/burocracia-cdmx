@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ficha de trámite — Burocracia CDMX</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<p class="volver"><a href="index.html">← Volver al ranking</a></p>
+<main id="ficha"></main>
+<footer>
+  <p><a href="index.html">Inicio</a> · <a href="metodologia.html">Metodología y fuentes</a></p>
+</footer>
+<script>
+fetch('data/tramites.json').then(r => r.json()).then(db => {
+  const id = new URLSearchParams(location.search).get('id');
+  const t = db.tramites.find(x => x.id === id);
+  const el = document.getElementById('ficha');
+  if (!t) { el.innerHTML = '<h1>Trámite no encontrado</h1>'; return; }
+  document.title = t.nombre + ' — Burocracia CDMX';
+  if (t.estado === 'en_auditoria') {
+    el.innerHTML = `<p class="kicker">${t.dependencia}</p><h1>${t.nombre}</h1>
+      <p class="sub">${t.resumen}</p>
+      <p class="badge gris">Ficha en auditoría — publicaremos cada dato con su fuente.</p>`;
+    return;
+  }
+  const sem = t.semaforo === 'rojo' ? 'rojo' : 'verde';
+  el.innerHTML = `
+    <p class="kicker">${t.dependencia}</p>
+    <h1>${t.nombre}</h1>
+    <p class="sub">${t.resumen}</p>
+    <p><span class="badge ${sem}">${t.semaforo === 'rojo' ? 'Carga alta' : 'Carga baja'}</span></p>
+    <h2>Capa 2 — El detalle</h2>
+    <div class="numeros">
+      <div class="numero"><span class="cifra">${t.visitas}</span><span class="etiqueta">sedes / visitas</span></div>
+      <div class="numero"><span class="cifra">${t.citas}</span><span class="etiqueta">citas</span></div>
+      <div class="numero"><span class="cifra">${t.horas_medidas} h</span><span class="etiqueta">espera medida</span></div>
+      <div class="numero"><span class="cifra">$${t.costo_mxn}</span><span class="etiqueta">costo (${t.costo_nota})</span></div>
+    </div>
+    <h3>Paso a paso real</h3>
+    <ol>${t.pasos.map(p => `<li>${p}</li>`).join('')}</ol>
+    <h3>Lo que te piden</h3>
+    <ul>${t.requisitos.map(p => `<li>${p}</li>`).join('')}</ul>
+    <h3>Fricciones detectadas</h3>
+    <ul>${t.fricciones.map(p => `<li>${p}</li>`).join('')}</ul>
+    ${t.requisitos_sin_fundamento_nota ? `<p class="nota">${t.requisitos_sin_fundamento_nota}</p>` : ''}
+    <h3>Propuesta (sin recortes)</h3>
+    <p>${t.propuesta}</p>
+    <h2>Capa 3 — Evidencia y fundamento</h2>
+    <ul>${t.fuentes.map(f => `<li><strong>${f.doc}</strong> — ${f.detalle} <span class="nota">(consultado ${f.fecha})</span></li>`).join('')}</ul>
+    <p><strong>Fundamento:</strong> ${t.fundamento}</p>
+    <p class="nota">Verificación completa (hashes, páginas exactas) en el repositorio del proyecto.</p>`;
+});
+</script>
+</body>
+</html>

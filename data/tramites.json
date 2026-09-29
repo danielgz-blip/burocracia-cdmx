@@ -1,0 +1,88 @@
+{
+  "actualizado": "2026-09-29",
+  "fuente_corpus": "marco_legal/ (49 archivos, SHA256SUMS.txt) + ocr_txt/ (3,286 pp)",
+  "tramites": [
+    {
+      "id": "alta-placas-moto",
+      "nombre": "Alta de placas para motocicleta (nueva)",
+      "dependencia": "SEMOVI + Tesorería CDMX",
+      "estado": "auditado",
+      "resumen": "Un solo hecho (registrar tu moto) exige 2 citas en 2 sedes distintas y 2-3 horas de espera por ~10 hojas.",
+      "visitas": 2,
+      "citas": 2,
+      "horas_medidas": "2-3",
+      "costo_mxn": 709,
+      "costo_nota": "Más tenencia del ejercicio. Moto ecológica: 50% descuento.",
+      "requisitos_totales": 4,
+      "requisitos_sin_fundamento": null,
+      "requisitos_sin_fundamento_nota": "En verificación contra RETyS (cruce M01/G1326 en curso).",
+      "semaforo": "rojo",
+      "pasos": [
+        "Crear cuenta Llave CDMX",
+        "Cita en Centro de Servicio de Tesorería solo para emitir el Formato Múltiple de Pago",
+        "Pagar derechos (el reflejo puede tardar hasta 72 h)",
+        "Segunda cita en Módulo de Control Vehicular SEMOVI",
+        "Presentar todo en original + línea pagada en original y copia",
+        "Validación en ventanilla, firma y entrega de placa + tarjeta"
+      ],
+      "requisitos": [
+        "Identificación oficial vigente con fotografía",
+        "Comprobante de domicilio CDMX (máx. 3 meses) o INE con domicilio completo",
+        "Factura de origen o carta factura (no se aceptan certificadas)",
+        "Línea de captura pagada (original y copia)"
+      ],
+      "fricciones": [
+        "Dos citas en dos sedes para un solo hecho administrativo",
+        "Original + copia de un pago que el propio gobierno emitió y puede verificar en línea",
+        "Alta de auto nuevo con avance digital; moto 100% presencial",
+        "Espera medida de 2-3 h para cotejar ~10 hojas"
+      ],
+      "propuesta": "Ventanilla única: una cita, expediente electrónico con Llave CDMX, línea de captura generada y pagada en línea, escaneo en ventanilla en lugar de fotocopias. Personal liberado → brigadas territoriales.",
+      "fuentes": [
+        { "doc": "semovi.cdmx.gob.mx — Alta de placas motocicleta nueva", "detalle": "Requisitos, pasos 1-8 y costo $709", "fecha": "2026-09-28" },
+        { "doc": "gaceta/G1326_2024-03-27", "detalle": "Aviso de inscripción del trámite de alta de placas (232 pp)", "fecha": "2026-09-28" },
+        { "doc": "gaceta/G1265_2023-12-28", "detalle": "Listado de conceptos, cuotas y tarifas SEMOVI", "fecha": "2026-09-28" }
+      ],
+      "fundamento": "LNETB 2025 (simplificación y digitalización) + CPEUM art. 25 + Constitución CDMX art. 7.A (buena administración eficaz y con TICs)"
+    },
+    {
+      "id": "licencia-a1",
+      "nombre": "Licencia de conducir A1/A2 (motocicleta)",
+      "dependencia": "SEMOVI",
+      "estado": "en_auditoria",
+      "resumen": "Ficha en construcción con M01 OCR + Gaceta.",
+      "visitas": null, "citas": null, "horas_medidas": null, "costo_mxn": null,
+      "semaforo": "gris", "pasos": [], "requisitos": [], "fricciones": [],
+      "propuesta": null, "fuentes": [], "fundamento": null
+    },
+    {
+      "id": "acta-nacimiento",
+      "nombre": "Acta de nacimiento (copia certificada)",
+      "dependencia": "Registro Civil CDMX",
+      "estado": "en_auditoria",
+      "resumen": "Ficha en construcción. El Registro Civil no aparece en el índice de sujetos obligados de transparencia (barrera #15 del reporte).",
+      "visitas": null, "citas": null, "horas_medidas": null, "costo_mxn": null,
+      "semaforo": "gris", "pasos": [], "requisitos": [], "fricciones": [],
+      "propuesta": null, "fuentes": [], "fundamento": null
+    },
+    {
+      "id": "imss-vigencia",
+      "nombre": "Constancia de vigencia de derechos IMSS",
+      "dependencia": "IMSS (federal, se hace en CDMX)",
+      "estado": "en_auditoria",
+      "resumen": "Ficha en construcción. Trámite federal con homoclave IMSS-02-020-B.",
+      "visitas": null, "citas": null, "horas_medidas": null, "costo_mxn": 0,
+      "semaforo": "gris", "pasos": [], "requisitos": [], "fricciones": [],
+      "propuesta": null, "fuentes": [], "fundamento": null
+    }
+  ],
+  "barreras": {
+    "total": 14,
+    "fuente": "REPORTE_BARRERAS_ACCESO_NORMATIVO_CDMX.md (2026-09-28)",
+    "destacadas": [
+      { "n": 3, "titulo": "El buscador de la Gaceta Oficial está roto", "detalle": "Toda búsqueda devuelve 'Array index out of range: 0'. Sin él no se puede verificar cuándo entró en vigor nada." },
+      { "n": 1, "titulo": "El portal de la Consejería marca 'No es seguro'", "detalle": "Certificado TLS sin cadena completa. Ahí viven 216 de 237 enlaces de normatividad de SEMOVI." },
+      { "n": 5, "titulo": "Manuales de 642 MB escaneados sin texto", "detalle": "Tesorería (1,475 pp) y Procuraduría Fiscal: imposible buscar un requisito o un monto. Ya pasados por OCR en este proyecto." }
+    ]
+  }
+}
