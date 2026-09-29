@@ -11,15 +11,15 @@
   --sombra: 0 2px 12px rgba(20, 20, 50, .08);
 }
 * { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--tinta); background: var(--fondo); line-height: 1.65; }
+body { margin: 0; font-family: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--tinta); background: var(--fondo); line-height: 1.65; text-align: left; }
 a { color: var(--acento); }
 a:hover { color: var(--acento-osc); text-decoration: underline; }
 
-header.hero { background: var(--suave); padding: 3.5rem 1.25rem 3rem; text-align: center; border-bottom: 1px solid var(--linea); }
+header.hero { background: var(--suave); padding: 3.5rem 1.25rem 3rem; text-align: left; border-bottom: 1px solid var(--linea); }
 .kicker { text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; color: var(--acento); font-weight: 700; margin: 0 0 .6rem; }
 h1 { font-size: clamp(1.9rem, 6vw, 3.1rem); line-height: 1.12; margin: 0 0 .85rem; font-weight: 800; letter-spacing: -.01em; }
-.sub { font-size: 1.15rem; color: var(--gris); max-width: 36rem; margin: 0 auto 1.8rem; }
-.cta-row { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+.sub { font-size: 1.15rem; color: var(--gris); max-width: 36rem; margin: 0 0 1.8rem; }
+.cta-row { display: flex; gap: .8rem; flex-wrap: wrap; }
 .btn { background: var(--acento); color: #fff; padding: .85rem 1.8rem; border-radius: 999px; text-decoration: none; font-weight: 700; box-shadow: var(--sombra); transition: background .15s; }
 .btn:hover { background: var(--acento-osc); color: #fff; text-decoration: none; }
 .btn.ghost { background: #fff; color: var(--acento); border: 2px solid var(--acento); box-shadow: none; }
