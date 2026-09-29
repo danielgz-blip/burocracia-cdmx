@@ -5,6 +5,7 @@
   const enlaces = [
     { href: 'index.html#ranking', label: 'Trámites' },
     { href: 'barreras.html', label: 'Barreras' },
+    { href: 'adonde-va-el-personal.html', label: 'Adónde va el personal' },
     { href: 'cuenta.html', label: 'Cuenta tu caso' },
     { href: 'acerca-de.html', label: 'Acerca de' }
   ];
