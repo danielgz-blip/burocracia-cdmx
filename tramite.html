@@ -10,18 +10,6 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<nav class="nav">
-  <div class="container nav-in">
-    <a class="marca" href="index.html"><i data-lucide="landmark"></i>Burocracia&nbsp;CDMX</a>
-    <div class="nav-links">
-      <a href="index.html#ranking">Trámites</a>
-      <a href="barreras.html">Barreras</a>
-      <a href="cuenta.html">Cuenta tu caso</a>
-      <a href="acerca-de.html">Acerca de</a>
-    </div>
-    <a class="btn nav-cta" href="cuenta.html">Contar mi caso</a>
-  </div>
-</nav>
 
 <div class="container"><p class="volver"><a href="index.html">← Volver al ranking</a></p></div>
 <main id="ficha" class="container"></main>
@@ -69,5 +57,6 @@ fetch('data/tramites.json').then(r => r.json()).then(db => {
     <p class="nota">Verificación completa (hashes, páginas exactas) en el repositorio del proyecto.</p>`;
 });
 </script>
+  <script src="nav.js"></script>
 </body>
 </html>

@@ -78,23 +78,22 @@ table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; border-radius:
 th, td { border: 1px solid var(--linea); padding: .75rem 1rem; text-align: left; font-size: 1rem; line-height: 1.5rem; }
 th { background: var(--acento); color: #fff; font-weight: 600; }
 
-/* Nav */
-.nav { background: #fff; border-bottom: 1px solid var(--linea); position: sticky; top: 0; z-index: 50; }
-.nav-in { display: flex; align-items: center; gap: 1.5rem; padding-top: .85rem; padding-bottom: .85rem; flex-wrap: wrap; }
-.marca { display: flex; align-items: center; gap: .55rem; font-weight: 800; font-size: 1.25rem; line-height: 2rem; color: var(--tinta); text-decoration: none; }
-.marca:hover { color: var(--acento); text-decoration: none; }
-.marca svg { width: 1.5rem; height: 1.5rem; color: var(--acento); }
-.nav-links { display: flex; gap: 1.15rem; flex: 1; flex-wrap: wrap; }
+/* Nav: estática, transparente, sin logo. Hamburguesa si no cabe en horizontal */
+.nav { background: transparent; border: none; position: static; padding: 1.25rem 0 0; }
+.nav-in { display: flex; align-items: center; gap: 1.5rem; flex-wrap: nowrap; }
+.nav-links { display: flex; gap: 1.15rem; flex: 1 1 auto; min-width: 0; }
 .nav-links a { color: var(--tinta); text-decoration: none; font-size: 1.0625rem; line-height: 1.6rem; font-weight: 500; white-space: nowrap; }
 .nav-links a:hover { color: var(--acento); }
-.nav-cta { padding: .55rem 1.4rem; font-size: 1rem; }
-@media (max-width: 900px) {
-  .nav-cta { display: none; }
-}
-@media (max-width: 640px) {
-  .nav-links { display: none; }
-  .nav-in { justify-content: space-between; }
-}
+.nav-cta { padding: .55rem 1.4rem; font-size: 1rem; flex: 0 0 auto; }
+.hamburguesa { display: none; align-items: center; justify-content: center; background: none; border: none; padding: .5rem; cursor: pointer; color: var(--tinta); }
+.hamburguesa svg { width: 1.75rem; height: 1.75rem; }
+.nav.compacto .nav-links, .nav.compacto .nav-cta { display: none; }
+.nav.compacto .hamburguesa { display: flex; margin-left: auto; }
+.nav-menu { display: flex; flex-direction: column; gap: 1.25rem; padding: 1.25rem 1.5rem 1.5rem; }
+.nav-menu[hidden] { display: none; }
+.nav-menu a:not(.btn) { color: var(--tinta); text-decoration: none; font-size: 1.125rem; line-height: 1.75rem; font-weight: 500; }
+.nav-menu a:not(.btn):hover { color: var(--acento); }
+.nav-menu .btn { align-self: flex-start; }
 
 /* Barreras lista */
 .barreras-lista .cat { margin: 3rem 0 1.5rem; }
