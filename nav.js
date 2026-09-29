@@ -14,9 +14,11 @@
       <div class="container nav-in">
         <div class="nav-links">${lista}</div>
         <button class="hamburguesa" aria-label="Menú" aria-expanded="false"><i data-lucide="menu"></i></button>
+      </div>
+      <div class="nav-menu" hidden>
+        ${lista}
         <a class="btn nav-cta" href="cuenta.html">Contar mi caso</a>
       </div>
-      <div class="nav-menu" hidden>${lista}</div>
     </nav>`);
 
   const nav = document.querySelector('.nav');
