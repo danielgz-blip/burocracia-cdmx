@@ -1,6 +1,7 @@
 {
   "actualizado": "2026-09-29",
   "fuente_corpus": "marco_legal/ (49 archivos, SHA256SUMS.txt) + ocr_txt/ (3,286 pp)",
+  "documentos_oficiales": 49,
   "tramites": [
     {
       "id": "alta-placas-moto",

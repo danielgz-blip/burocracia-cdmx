@@ -30,7 +30,8 @@ h2 { font-size: 1.65rem; margin-top: 3rem; font-weight: 800; letter-spacing: -.0
 h3 { font-size: 1.15rem; margin: 1.5rem 0 .5rem; }
 
 .numeros { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1.1rem; margin: 2rem 0; }
-.numero { background: #fff; border: 1px solid var(--linea); border-radius: 1rem; padding: 1.4rem 1rem; text-align: center; box-shadow: var(--sombra); }
+.numero { background: #fff; border: 1px solid var(--linea); border-radius: 1rem; padding: 1.4rem 1.15rem; text-align: left; box-shadow: var(--sombra); }
+.numero svg, .card > svg { width: 1.6rem; height: 1.6rem; color: var(--acento); margin-bottom: .75rem; }
 .cifra { display: block; font-size: 2.2rem; font-weight: 800; color: var(--acento); line-height: 1.1; }
 .etiqueta { font-size: .88rem; color: var(--gris); }
 

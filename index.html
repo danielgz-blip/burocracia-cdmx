@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 </head>
 <body>
 <header class="hero">
@@ -24,10 +25,10 @@
 
 <main>
   <section class="numeros" aria-label="Cifras principales">
-    <div class="numero"><span class="cifra" id="n-tramites">–</span><span class="etiqueta">trámites auditados</span></div>
-    <div class="numero"><span class="cifra" id="n-horas">–</span><span class="etiqueta">horas de espera medidas (caso moto)</span></div>
-    <div class="numero"><span class="cifra" id="n-visitas">–</span><span class="etiqueta">sedes distintas para un solo trámite</span></div>
-    <div class="numero"><span class="cifra" id="n-barreras">–</span><span class="etiqueta">barreras para consultar la ley</span></div>
+    <div class="numero"><i data-lucide="clipboard-list"></i><span class="cifra" id="n-tramites">–</span><span class="etiqueta">trámites auditados</span></div>
+    <div class="numero"><i data-lucide="scale"></i><span class="cifra" id="n-barreras">–</span><span class="etiqueta">barreras documentadas</span></div>
+    <div class="numero"><i data-lucide="files"></i><span class="cifra" id="n-docs">–</span><span class="etiqueta">documentos oficiales verificados</span></div>
+    <div class="numero"><i data-lucide="badge-check"></i><span class="cifra">100%</span><span class="etiqueta">de los datos con fuente citada</span></div>
   </section>
 
   <section id="ranking" aria-label="Ranking de trámites">
