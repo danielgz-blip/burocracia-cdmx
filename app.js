@@ -25,7 +25,7 @@ fetch('data/tramites.json').then(r => r.json()).then(db => {
   });
 
   const bl = document.getElementById('barreras-list');
-  db.barreras.destacadas.forEach(b => {
+  if (bl) db.barreras.destacadas.forEach(b => {
     const li = document.createElement('li');
     li.innerHTML = `<strong>Barrera #${b.n}: ${b.titulo}.</strong> ${b.detalle}`;
     bl.appendChild(li);
